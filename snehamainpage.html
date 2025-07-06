@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InternZone - Level Up Your Interview Skills</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      
+        :root {
+            --primary-color: #f44336;
+            --primary-dark: #d32f2f;
+            --primary-light: #e57373;
+            --text-dark: #333333;
+            --text-light: #555555;
+            --white: #ffffff;
+            --light-bg: #f5f5f5;
+            --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text-dark);
+            font-family: 'Poppins', Arial, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+            background-color: rgba(244, 67, 54, 0.95);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            color: var(--white);
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-logo .material-icons {
+            margin-right: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style-type: none;
+        }
+
+        .nav-links li {
+            font-size: 16px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .nav-links li:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-links .material-icons {
+            margin-right: 8px;
+            font-size: 20px;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+
+        .btn-light {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        .btn-light:hover {
+            background-color: var(--light-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outlined {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outlined:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--white);
+            font-size: 24px;
+        }
+
+      
+        .hero {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(244, 67, 54, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+            z-index: 0;
+        }
+
+        .hero-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .image-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-pic {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+       
+        .features {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 50px;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .feature-image {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-image:hover {
+            transform: scale(1.02);
+        }
+
+
+        .cta {
+            background-color: var(--primary-color);
+            padding: 60px 0;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+            z-index: 0;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-description {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+       
+        .footer {
+            background-color: #222;
+            color: var(--white);
+            padding: 40px 0 20px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo .material-icons {
+            margin-right: 8px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+       
+
+       
+        @media (max-width: 992px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .profile-pic {
+                width: 240px;
+                height: 240px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
+            }
+
+            .nav-container {
+                position: relative;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background-color: var(--primary-color);
+                padding: 20px 0;
+                gap: 15px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                display: none;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                justify-content: center;
+            }
+
+            .auth-buttons {
+                display: none;
+            }
+
+            .mobile-auth {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px 0;
+            }
+
+            .feature-card {
+                padding: 20px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .footer-column {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .feature-title {
+                font-size: 1.2rem;
+            }
+
+            .cta-title {
+                font-size: 1.5rem;
+            }
+
+            .profile-pic {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="nav-logo">
+                <span class="material-icons">school</span>
+                InternZone
+            </div>
+            <ul class="nav-links">
+                <li><span class="material-icons">home</span>Home</li>
+                <li><span class="material-icons">video_call</span>Interview</li>
+                <li><span class="material-icons">work</span>Jobs</li>
+                <li><span class="material-icons">description</span>Resume</li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="btn btn-outlined">Sign in</button>
+                <button class="btn btn-light">Sign up</button>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="material-icons">menu</span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">InternZone — Level Up Your Interview Skills</h1>
+                <p class="hero-description">This platform is designed to help you crack interviews with confidence.<br>
+                    Get expert tips, common questions, and smart strategies to succeed. 😊</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary">Get Started</button>
+                    <button class="btn btn-outlined">Learn More</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-card">
+                    <img src="interview8.png" alt="Interview Preparation" class="profile-pic">
+                    <button class="btn btn-primary">Start Practice</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">What We Offer</h2>
+            
+         
+            <div class="feature-card">
+                <span class="feature-number">1</span>
+                <h3 class="feature-title">Why Interviews Matter</h3>
+                <p class="feature-description">Interviews are the gateway to your dream job. With proper preparation, you can walk in with confidence and increase your chances of success. Our platform helps you master both the art and science of interviews.</p>
+                <p class="feature-description">In an interview, first impressions are crucial. It's not just about answering questions but also about how you present yourself. Being well-prepared allows you to express your skills, experience, and personality in the best light possible.</p>
+                <p class="feature-description">Our platform provides tips on answering common questions and helps you understand how to handle tricky or unexpected questions. You'll gain valuable insights into body language, communication techniques, and how to establish rapport with your interviewers.</p>
+                <img src="interview_tips.jpg" alt="Interview Tips" class="feature-image">
+            </div>
+            
+        
+            <div class="feature-card">
+                <span class="feature-number">2</span>
+                <h3 class="feature-title">What You Will Learn</h3>
+                <p class="feature-description">Through our expert tips, you will learn how to answer common interview questions, how to present yourself with confidence, and how to handle stress during interviews. We cover everything to ensure you're fully prepared.</p>
+                <p class="feature-description">You'll learn how to tailor your answers to align with the job you're applying for and how to highlight your strengths effectively. Our expert guides cover how to frame your experiences in a way that resonates with interviewers and showcases your value to the company.</p>
+                <p class="feature-description">Beyond answering questions, we also focus on non-verbal communication. You'll learn how to make a lasting impression with strong body language, appropriate eye contact, and a confident tone of voice.</p>
+                <img src="roadmap.jpg" alt="Learning Path" class="feature-image">
+            </div>
+            
+            
+            <div class="feature-card">
+                <span class="feature-number">3</span>
+                <h3 class="feature-title">How This Website Is Useful</h3>
+                <p class="feature-description">InternZone provides a comprehensive set of tools and resources to help you crack any interview. From personalized feedback to interview simulations, this platform is designed to boost your chances of success.</p>
+                <p class="feature-description">Our platform offers features that cater to every stage of the interview process. You can access real-world interview questions, industry-specific scenarios, and expert insights to sharpen your responses and build confidence.</p>
+                <p class="feature-description">One key feature is our personalized feedback system, where you receive constructive criticism on your mock interviews. The website also provides interview simulations that replicate real-life scenarios.</p>
+                <img src="sucess.jpg" alt="Success Story" class="feature-image">
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="cta">
+        <div class="container cta-content">
+            <h2 class="cta-title">Ready to Ace Your Next Interview?</h2>
+            <p class="cta-description">Join thousands of successful candidates who have transformed their interview skills with InternZone. Sign up today and take the first step toward your dream job!</p>
+            <button class="btn btn-light">Sign Up Now</button>
+        </div>
+    </section>
+
+    
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <span class="material-icons">school</span>
+                    InternZone
+                </div>
+                <p>Your one-stop platform for interview preparation and career success.</p>
+                <div class="footer-social">
+                    <div class="social-icon">
+                        <span class="material-icons">facebook</span>
+                    </div>
+                    <div class="social-icon">
+                        <span class="material-icons">twitter</span>
+                    </div>
+                    <div class="social-icon">
+                        <span class="material-icons">linkedin</span>
+                    </div>
+                    <div class="social-icon">
+                        <span class="material-icons">instagram</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="#">Home</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Services</a>
+                    <a href="#">Success Stories</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <div class="footer-links">
+                    <a href="#">Blog</a>
+                    <a href="#">Interview Tips</a>
+                    <a href="#">Resume Templates</a>
+                    <a href="#">Industry Guides</a>
+                    <a href="#">FAQ</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <div class="footer-links">
+                    <a href="mailto:info@internzone.com">info@internzone.com</a>
+                    <a href="tel:+12345678900">+1 (234) 567-8900</a>
+                    <p>123 Interview Street<br>Career City, CV 12345</p>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 InternZone. All rights reserved.
+        </div>
+    </footer>
+
+    
+<script>
+   
+    
+    document.getElementById('hamburger').onclick = function() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.classList.toggle('active');
+      
+      const icon = this.querySelector('.material-icons');
+      if (navLinks.classList.contains('active')) {
+        icon.textContent = 'close';
+        
+        
+        if (!navLinks.querySelector('.mobile-auth')) {
+          const mobileAuth = document.createElement('div');
+          mobileAuth.className = 'mobile-auth';
+          mobileAuth.innerHTML = '<button class="btn btn-light">Sign in</button> <button class="btn btn-light">Sign up</button>';
+          navLinks.appendChild(mobileAuth);
+        }
+      } else {
+        icon.textContent = 'menu';
+      }
+    };
+    
+    
+    window.onscroll = function() {
+      const navbar = document.getElementById('navbar');
+      const backToTop = document.getElementById('backToTop');
+      
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+        backToTop.classList.add('show');
+      } else {
+        navbar.classList.remove('scrolled');
+        backToTop.classList.remove('show');
+      }
+    };
+    
+   
+    document.getElementById('backToTop').onclick = function() {
+      window.scrollTo(0, 0);
+    };
+    
+   
+    window.onscroll();
+</script>
+</body>
+</html>

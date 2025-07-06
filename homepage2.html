@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InternZone - Home</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #fff;
+        color: #333;
+      }
+      .bg {
+        background: #e60000;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo {
+        margin-left: 20px;
+      }
+      .logo img {
+        height: 50px;
+      }
+      .menu-container {
+        background: rgba(255, 255, 255, 0.259);
+        padding: 10px;
+        text-align: center;
+        display: inline-block;
+        border-radius: 20px;
+      }
+      nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      nav ul li {
+        display: inline;
+        margin: 0 15px;
+      }
+      nav ul li a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        font-size: 18px;
+        padding: 7px 10px 7px 7px;
+        transition: background 0.3s ease, color 0.3s ease;
+        border-radius: 20px;
+      }
+      nav ul li a:hover {
+        background: rgba(255, 255, 255, 0.238);
+        color: #ffffff;
+      }
+      /* Hide the default checkbox */
+      #menu-toggle {
+        display: none;
+      }
+
+      /* Style the menu button */
+      .menu-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        padding: 10px 20px;
+        background-color: #ff4949;
+        color: white;
+        cursor: pointer;
+        z-index: 10;
+      }
+
+      /* Style the menu */
+      .menu {
+        display: none;
+        flex-direction: column;
+        background-color: #e1606051;
+        position: absolute;
+        top: 50px;
+        left: 20px;
+        width: 200px;
+        border-radius: 5px;
+      }
+
+      /* Display the menu when the checkbox is checked */
+      #menu-toggle:checked + .menu {
+        display: flex;
+      }
+
+      .menu a {
+        padding: 15px;
+        text-decoration: none;
+        color: black;
+        display: block;
+      }
+
+      .menu a:hover {
+        background-color: #ddd;
+      }
+      .hero {
+        text-align: center;
+        padding: 50px;
+        background: linear-gradient(to right, #ff4d4d, #ff0000);
+        color: white;
+        position: relative;
+      }
+      .hero h1 {
+        font-size: 50px;
+      }
+      .hero p {
+        font-size: 18px;
+      }
+      .buttons {
+        margin-top: 20px;
+      }
+      .buttons a {
+        padding: 10px 20px;
+        margin: 5px;
+        text-decoration: none;
+        color: white;
+        background: #800000;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="bg">
+        <div class="logo">
+          <img src="logo.png" alt="InternZone Logo" />
+        </div>
+        <div class="menu-container" style="margin-right: 480px;">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section class="hero">
+      <label class="menu-btn" for="menu-toggle">☰ Menu</label>
+      <input type="checkbox" id="menu-toggle" />
+      <div class="menu">
+        <a href="#" onclick="document.getElementById('menu-toggle').checked = false;">Home</a>
+        <a href="#" onclick="document.getElementById('menu-toggle').checked = false;">About</a>
+        <a href="#" onclick="document.getElementById('menu-toggle').checked = false;">Services</a>
+        <a href="#" onclick="document.getElementById('menu-toggle').checked = false;">Portfolio</a>
+        <a href="#" onclick="document.getElementById('menu-toggle').checked = false;">Contact</a>
+        <a href="#" onclick="document.getElementById('menu-toggle').checked = false;">Help</a>
+      </div>
+      <h1>Welcome to InternZone</h1>
+      <p>Your ultimate platform for career growth and opportunities.</p>
+      <div class="buttons">
+        <a href="#">Get Started</a>
+        <a href="#">Learn More</a>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personality Quiz Rules</title>
+    <link rel="stylesheet" href="rules.css">
+</head>
+<body onload="initializeButtons()">
+     <header>
+        <h1>Quiz Zone</h1>
+        <p>Test your knowledge, discover your strengths, and learn as you go!</p>
+    </header>
+     <div class="rules-container" id="rulesScreen" >
+            <h2 id="rulesTitle">Personality Test - Rules</h2>
+            
+            <ul class="rules-list" id="rulesList">
+            <li>Answer each question honestly based on how you typically think, feel, or behave.</li>
+            <li>There are no right or wrong answers in this assessment.</li>
+            <li>Try not to spend too much time on each question - your first instinct is usually best.</li>
+            <li>Results will provide insights into your personality traits and preferences.</li> 
+            <li>You'll have 15 minutes to complete the assessment.</li>
+            </ul>
+            
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="goBack()">Cancel</button>
+                <button class="btn" onclick="startQuiz()">Start Quiz</button>
+            </div>
+        </div>
+         <script src="script.js"></script>
+</body>
+</html>

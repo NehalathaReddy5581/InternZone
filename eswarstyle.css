@@ -1,0 +1,10 @@
+
+    .custom-list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: rgb(234, 102, 102);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+  

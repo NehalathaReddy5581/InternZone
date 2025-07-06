@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Home Page</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+     <header>
+        <h1>Quiz Zone</h1>
+        <p>Test your knowledge, discover your strengths, and learn as you go!</p>
+    </header>
+    <div class="container">
+        <div class="home-screen" id="homeScreen">
+            <h2 style="text-align: center; margin: 30px 0;">Select a Quiz Type</h2>
+                    
+            <div class="quiz-options" style="background-color: rgb(244, 239, 239);">
+                <div class="quiz-card" onclick="navigateToRules('personality')">
+                    <img src="personality-icon-vector-image-can-be-used-psychology_120816-114552.avif" alt="Personality Test Icon" width="20px">
+                    <h3>Personality Test</h3>
+                    <p>Discover your personality traits, strengths, and potential career paths with our comprehensive personality assessment.</p>
+                    <button class="btn" onclick="navigateToRules('personality')">Start Test</button>
+                </div>
+                
+                <div class="quiz-card">
+                    <img src="symbol-computer-programming-icon-260nw-2601336711.webp" alt="Programming Quiz Icon">
+                    <h3>Programming Quiz</h3>
+                    <p>Test your programming knowledge with questions covering different languages, algorithms, and problem solving.</p>
+                    <button class="btn"><a href="programming-index.html">Explore</a></button>
+                </div>
+                
+                <div class="quiz-card" onclick="navigateToRules('interview')">
+                    <img src="download.png" alt="Interview Prep Icon">
+                    <h3>Interview Preperation</h3>
+                    <p>Practice common interview questions and get feedback on your answers to improve your interview skills.</p>
+                    <button class="btn" onclick="navigateToRules('interview')">Start Prep</button>
+                </div>
+                
+                <div class="quiz-card">
+                    <img src="depositphotos_81198296-stock-illustration-examination-flat-red-color-rounded.jpg" alt="Aptitude Test Icon">
+                    <h3>Aptitude Test</h3>
+                    <p>Measure your logical reasoning, numerical abilities, and problem-solving skills with our aptitude assessment.</p>
+                    <button class="btn"><a href="aptitude-index.html">Explore</a></button>
+                </div>
+            </div>
+        </div>
+    <script src="script.js"></script>
+</body>
+</html>

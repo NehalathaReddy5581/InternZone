@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Sidebar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: rgb(225, 62, 62);
+            position: fixed;
+            left: -250px;
+            transition: left 0.3s ease-in-out;
+            padding-top: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 15px;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+        }
+        .sidebar ul li a:hover {
+            background: antiquewhite;
+            color: rgb(225, 62, 62);
+            padding: 10px;
+        }
+        .menu-toggle {
+            font-size: 25px;
+            cursor: pointer;
+            position: absolute;
+            left: 15px;
+            top: 20px;
+            color: rgb(225, 62, 62);
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .menu-toggle:hover {
+            background: antiquewhite;
+        }
+        .content {
+            margin-left: 20px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </div>
+    
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="#" onclick="closeSidebar()">Home</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Links</a></li>
+            <li><a href="#">Streams</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h1>Welcome to the Homepage</h1>
+        <p>Click on the menu icon to open the sidebar.</p>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            let sidebar = document.getElementById("sidebar");
+            if (sidebar.style.left === "0px") {
+                sidebar.style.left = "-250px";
+            } else {
+                sidebar.style.left = "0px";
+            }
+        }
+        
+        function closeSidebar() {
+            document.getElementById("sidebar").style.left = "-250px";
+        }
+    </script>
+</body>
+</html>

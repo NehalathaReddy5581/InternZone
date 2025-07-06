@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InternZone - Home</title>
+  <link rel="icon" href="uid_logo-removebg-preview edited.png" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #333;
+      font-family: san;
+    }
+
+    .bg {
+      background: #e60000d8;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    :root {
+      --primary-color: #f44336;
+      --primary-dark: #d32f2f;
+      --primary-light: #e57373;
+      --text-dark: #333333;
+      --text-light: #555555;
+      --white: #ffffff;
+      --light-bg: #f5f5f5;
+      --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--white);
+      color: var(--text-dark);
+      font-family: "Poppins", Arial, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: linear-gradient(#ff0000, #ff2121, rgb(255, 70, 70));
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 15px 0;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      padding: 10px 0;
+      background-color: rgba(244, 67, 54, 0.95);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      color: var(--white);
+      font-size: 24px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-logo .material-icons {
+      margin-right: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style-type: none;
+    }
+
+    .nav-links li {
+      font-size: 16px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--white);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .nav-links li:hover {
+      transform: translateY(-2px);
+    }
+
+    .nav-links .material-icons {
+      margin-right: 8px;
+      font-size: 20px;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .btn {
+      border-radius: 25px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: "Poppins", Arial, sans-serif;
+    }
+
+    .btn-light {
+      background-color: var(--white);
+      color: var(--primary-color);
+    }
+
+    .btn-light:hover {
+      background-color: var(--light-bg);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-outlined {
+      background-color: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+
+    .btn-outlined:hover {
+      background-color: var(--white);
+      color: var(--primary-color);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 50px;
+      color: white;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 520px;
+      box-shadow: 0px 4px 4px 4px rgba(128, 128, 128, 0.256);
+    }
+
+    .hero h1 {
+      font-size: 50px;
+      margin-left: 55px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-left: 55px;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    .buttons a {
+      padding: 10px 20px;
+      margin: 5px;
+      text-decoration: none;
+      color: white;
+      background: #800000;
+      border-radius: 5px;
+    }
+
+    #menu-toggle {
+      display: none;
+    }
+
+    .menu-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 10px;
+      background-color: #fff;
+      color: #e60000;
+      cursor: pointer;
+      font-size: 24px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: #ff3c3c;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+      padding-top: 10px;
+      display: flex;
+      flex-direction: column;
+      transition: left 0.3s ease;
+      z-index: 1000;
+    }
+
+    #menu-toggle:checked+.menu {
+      left: 0;
+    }
+
+    .menu header {
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      padding: 15px;
+      background: #e60000;
+      color: white;
+    }
+
+    .menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 7px;
+    }
+
+    .menu li {
+      padding: 15px;
+    }
+
+    .menutwo a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: rgb(255, 255, 255);
+      font-size: 17px;
+      padding: 7px;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .menutwo a i {
+      margin-right: 5 px;
+      font-size: 12px;
+    }
+
+    .menutwo a:hover {
+      transform: translateY(-3px);
+      color: rgb(255, 255, 255);
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .line {
+      border: none;
+      height: 1px;
+      width: 180px;
+      background: whitesmoke;
+      margin: 5px 40px;
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      color: var(--white);
+      font-size: 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <div class="nav-logo">
+        <img src="logo.png" height="40">&nbsp;
+        InternZone
+      </div>
+      <ul class="nav-links">
+        <li><span class="material-icons">home</span><a href="merged.html">Home</a></li>
+        <li><span class="material-icons">video_call</span><a href="bodylanguage.html">Interview</a></li>
+        <li><span class="material-icons">work</span><a href="companies.html">Jobs</a></li>
+        <li><span class="material-icons">description</span><a href="res.html">Resume</a></li>
+      </ul>
+      <div class="auth-buttons">
+        <a href="loginpage.html">
+        <button class="btn btn-outlined">Sign in</button></a>
+        <a href="signup.html"   >
+        <button class="btn btn-light">Sign up</button></a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span class="material-icons">menu</span>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <style>
+    .closebutton a {
+      display: flex;
+      align-items: flex-end;
+      text-decoration: none;
+      color: black;
+      padding: 6px;
+      transition: none;
+    }
+
+    .closebutton a:hover {
+      background-color: none;
+    }
+
+    .closebutton {
+      margin-left: 200px;
+    }
+
+    .return-to-top {
+      margin-top: 92%;
+      margin-left: 92%;
+      background-color: #00a1e6;
+    }
+
+    .scrolltop {
+      animation-name: appear;
+      animation-timeline: scroll(y);
+      animation-duration: 5s;
+      z-index: 30000;
+    }
+
+    .features {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 50px;
+      color: var(--primary-color);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background-color: var(--primary-color);
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    .feature-card {
+      background-color: var(--white);
+      border-radius: 15px;
+      box-sizing: content-box;
+      padding: 30px;
+      margin-bottom: 50px;
+      width: 320px;
+      box-shadow: var(--box-shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-number {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      text-align: center;
+      line-height: 40px;
+      border-radius: 50%;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .feature-title {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .feature-description {
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+
+    .footer {
+      background-color: #222;
+      color: var(--white);
+      padding: 40px 0 20px;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-logo .material-icons {
+      margin-right: 8px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .social-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: #444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s;
+    }
+
+    .social-icon:hover {
+      background-color: var(--primary-color);
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #444;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .features .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+
+    @keyframes appear {
+      0% {
+        opacity: 0;
+        display: none;
+        position: fixed;
+      }
+
+      3% {
+        opacity: 0;
+        display: none;
+      }
+
+      10% {
+        opacity: 0.3;
+        display: block;
+      }
+
+      20% {
+        opacity: 0.7;
+        display: block;
+      }
+
+      30% {
+        opacity: 1;
+        display: block;
+      }
+
+      100% {
+        opacity: 1;
+        display: block;
+        position: fixed;
+      }
+    }
+  </style>
+
+  <section class="hero">
+    <img src="herosecbackgroundpic(1).jpg" style="width: 100%;height: 100%;" >
+    <label class="menu-btn" for="menu-toggle">☰</label>
+    <input type="checkbox" id="menu-toggle" />
+
+    <div class="menu">
+      <div class="closebutton">
+        <a href="merged.html"><i style="font-size: 25px" class="fa-solid fa-circle-xmark"></i></a>
+      </div>
+      <section class="menutwo">
+        <header style="font-size: 25px">MENU</header>
+        <ul>
+          <li>
+            <a href="second.html"> <i class="fa-solid fa-code"></i>&nbsp;&nbsp;Student
+              Resources</a>
+          </li>
+          <hr class="line" />
+          <li>
+            <a href="companies.html"><i class="fa-solid fa-laptop"></i>&nbsp;&nbsp;Job
+              Roles</a>
+          </li>
+          <hr class="line" />
+          <li>
+            <a href="res.html"><i class="fa-solid fa-file"></i> &nbsp;&nbsp;&nbsp;Resume
+              Guide</a>
+          </li>
+          <hr class="line" />
+          <li>
+            <a href="bodylanguage.html"><i class="fa-solid fa-handshake"></i>&nbsp;&nbsp;
+              Interview Etiquette</a>
+          </li>
+          <hr class="line" />
+          <li>
+            <a href="linkedineswar.html"><i class="fas fa-user"></i>&nbsp;&nbsp; LinkedIn Tips</a>
+          </li>
+          <hr class="line" />
+          <li>
+            <a href="neharesume.html"><i class="fa-solid fa-book"></i> &nbsp;&nbsp;&nbsp;Interview
+              Guide</a>
+          </li>
+          <hr class="line" />
+          <li>
+            <a href="Company_research.html"><i class="fa-solid fa-building"></i>&nbsp;&nbsp;&nbsp;Research</a>
+          </li>
+          <hr class="line" />
+        </ul>
+      </section>
+    </div>
+  </section>
+
+  <section class="features">
+    <h2 class="section-title">What We Offer</h2>
+    <div class="container">
+      <div class="feature-card">
+        <span class="feature-number">1</span>
+        <h3 class="feature-title">Why Interviews Matter</h3>
+        <p class="feature-description">Interviews open the door to your dream job. With the right preparation, you can
+          confidently showcase your skills and personality. Our platform offers tips on answering questions, improving
+          body language, and building rapport. Master the art of interviews and make a lasting impression with
+          InternZone’s expert guidance and proven strategies.
+        </p>
+      </div>
+
+
+      <div class="feature-card">
+        <span class="feature-number">2</span>
+        <h3 class="feature-title">What You Will Learn</h3>
+        <p class="feature-description">Learn to answer common interview questions, present yourself confidently, and
+          manage stress with our expert tips. Tailor your responses to the job role, highlight your strengths, and frame
+          experiences effectively. We also cover non-verbal communication—body language, eye contact, and tone—to help
+          you make a lasting impression.
+        </p>
+      </div>
+
+
+      <div class="feature-card">
+        <span class="feature-number">3</span>
+        <h3 class="feature-title">How It Helps</h3>
+        <p class="feature-description">InternZone offers resources to help you ace interview. From real-world questions
+          to industry-specific scenarios, our platform supports every stage of preparation. Key features include
+          interview simulations and personalized feedback, giving you insights to improve your performance and build
+          confidence for real-life interview success.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <style>
+    .mock-test-section {
+      background: radial-gradient(#ffffff 0%,white 30%,rgb(255, 234, 234) 60%, #ff96965c 100%);
+      padding: 60px 20px;
+      text-align: center;
+      border-radius: 20px;
+      margin-bottom: 70px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      margin-right: 110px;
+      margin-left: 110px;
+    }
+
+    .mock-test-content {
+      max-width: 600px;
+      margin: 0 auto;
+      color: rgb(255, 0, 0);
+    }
+
+    .mock-test-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .mock-test-description {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    .mock-test-button {
+      display: inline-block;
+      background: #ff5252;
+      color: white;
+      padding: 18px 40px;
+      font-size: 1.3rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .mock-test-button:hover {
+      background: #ff2323;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(255, 107, 107, 0.4);
+    }
+
+    .mock-test-button:active {
+      transform: translateY(-1px);
+    }
+
+    .mock-test-features {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgb(0, 0, 0);
+      opacity: 0.9;
+    }
+
+    .feature-icon {
+      width: 20px;
+      height: 20px;
+      fill: #ff0000;
+    }
+  </style>
+
+  <div class="mock-test-section">
+    <div class="mock-test-content">
+      <h2 class="mock-test-title">Ready to Test Your Skills?</h2>
+      <p class="mock-test-description">
+        Challenge yourself with our comprehensive mock tests. Practice with real-world scenarios and track your
+        progress.
+      </p>
+
+      <a href="quizpilotcharan.html" class="mock-test-button">
+        Click Here to Start Mock Test
+      </a>
+
+      <div class="mock-test-features">
+        <div class="feature-item">
+          <svg class="feature-icon" viewBox="0 0 24 24">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
+          <span>Instant Results</span>
+        </div>
+        <div class="feature-item">
+          <svg class="feature-icon" viewBox="0 0 24 24">
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+          </svg>
+          <span>Free Practice</span>
+        </div>
+        <div class="feature-item">
+          <svg class="feature-icon" viewBox="0 0 24 24">
+            <path
+              d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z" />
+          </svg>
+          <span>Concept Revision</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    .progress{
+      border-radius: 20px;
+      box-shadow:3px 2px 2px 2px  #5555554b;
+      border:1px solid rgba(128, 128, 128, 0.125);
+      width:350px;
+      height:auto;
+      text-align: center;
+      margin-left: 38%;
+      padding:20px;
+      background:radial-gradient(white ,rgb(255, 234, 234) ,rgb(255, 201, 201));
+    }
+    .progress-container button{
+      margin-top: 10px;
+    }
+     .progress-container button {
+      background-color: white;
+      color: rgb(255, 0, 0);
+      border-radius: 10em;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 0.7em 1.4em;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      border: 1px solid rgb(255, 47, 47);
+      box-shadow: 0 0 0 0 rgb(255, 0, 0);
+    }
+    .progress-container button:hover {
+      transform: translateY(-4px) translateX(-2px);
+      box-shadow: 2px 5px 0 0 rgb(255, 15, 15);
+    }
+
+    .progress-container button:active {
+      transform: translateY(2px) translateX(1px);
+      box-shadow: 0 0 0 0 black;
+    }
+
+  </style>
+  <div class="progress-container">
+    <h2 class="section-title"><small>Track your studies</small></h2>
+  <div class="progress"><P>Keep track of your learning journey—stay focused and achieve your goals!</P>
+  <a href="progressbar.html">
+          <button>
+            Check Progress
+          </button></a>
+          </div>
+          </div>
+          <BR><BR>
+  <style>
+    .quizcontainer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin: 30px 110px 0 135px;
+    }
+
+    .articlebox {
+      border: 1px solid rgba(0, 0, 0, 0.058);
+      box-shadow: 3px 3px 3px 3px rgba(128, 128, 128, 0.341);
+      border-radius: 25px;
+      height: 270px;
+      background-color: rgba(255, 255, 255, 0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.5s;
+    }
+
+    .articlebox:hover {
+      transform: translateY(-10px);
+      box-shadow: 4px 4px 4px 4px rgba(128, 128, 128, 0.337);
+    }
+
+    .articlebox img {
+      height: 100px;
+      margin-bottom: 10px;
+    }
+
+    .articlebox p {
+      flex-grow: 1;
+      text-align: center;
+    }
+
+    .articlebox a {
+      text-decoration: none;
+      color: blue;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .articlebox button {
+      background-color: white;
+      color: rgb(255, 0, 0);
+      border-radius: 10em;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 0.7em 1.4em;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      border: 1px solid rgb(255, 47, 47);
+      box-shadow: 0 0 0 0 rgb(255, 0, 0);
+    }
+
+    .articlebox button:hover {
+      transform: translateY(-4px) translateX(-2px);
+      box-shadow: 2px 5px 0 0 rgb(255, 15, 15);
+    }
+
+    .articlebox button:active {
+      transform: translateY(2px) translateX(1px);
+      box-shadow: 0 0 0 0 black;
+    }
+
+    ;
+  </style>
+  <section id="Quizpage">
+    <h2 class="section-title">Essential Reads for Interviews</h2>
+    <div class="quizcontainer">
+      <div class="articlebox">
+        <img src="internshala_og_image-removebg-preview.png">
+        <p>A detailed list of frequently asked questions in internship interviews.</p>
+        <a href="https://blog.internshala.com/internship-interview-questions-and-answers/">
+          <button>
+            Click here
+          </button></a>
+      </div>
+      <div class="articlebox"><img src="forbesimages-removebg-preview.png">
+        <p>This Forbes article explores how job interviews have become more rigorous.</p>
+        <a
+          href="https://www.forbes.com/sites/pamcohen/2024/08/14/navigating-the-new-gauntlet-of-professional-interviews/">
+          <button>
+            Click here
+          </button></a>
+      </div>
+      <div class="articlebox"><img src="Simplilearn-Logo-removebg-preview.png">
+        <p>Simplilearn offers a detailed breakdown of interview statistics.</p>
+        <a href="https://www.simplilearn.com/job-interview-statistics-article">
+          <button>
+            Click here
+          </button></a>
+      </div>
+    </div>
+  </section>
+  <br><br><br>
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-column">
+        <div class="footer-logo">
+          <img src="logo.png" height="35">&nbsp;
+          InternZone
+        </div>
+        <p>Your one-stop platform for interview preparation and career success.</p>
+
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <div class="footer-links">
+          <a href="merged.html">Home</a>
+          <a href="aboutus.html">About Us</a>
+          <a href="contact_us.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Resources</h3>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/blog/member">Blog</a>
+          <a href="bodylanguage.html">Interview Tips</a>
+          <a href="res.html">Resume Templates</a>
+          <a href="companies.html">Industry Guides</a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <div class="footer-links">
+          <a href="mailto:info@internzone.com">info@internzone.com</a>
+          <a href="tel:+12345678900">8888888888</a>
+          <p>Amrita Vishwa Vidyapeetham <br>Amaravati</p>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2025 InternZone. All rights reserved.
+    </div>
+  </footer><a href="merged.html"><img src="Eo_circle_red_arrow-up.svg-removebg-preview.png" alt="logo"
+      style="right:0;top:90%;width:50px;" class="scrolltop"></a>
+
+
+  </section>
+</body>
+
+</html>

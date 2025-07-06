@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aptitude Home Page</title>
+    <link rel="stylesheet" href="programming-index.css">
+</head>
+<body>
+     <header>
+        <h1>Programming Zone</h1>
+        <p>Test your programming knowledge with questions covering different languages, algorithms, and problem solving.</p>
+    </header>
+    <div class="container">
+        <!-- Home Screen with Quiz Types -->
+        <div class="home-screen" id="homeScreen">
+            <h2 style="text-align: center; margin: 30px 0;">Select a Quiz Type</h2>
+            
+            <div class="quiz-options" style="background-color: rgb(244, 239, 239);">
+                <div class="quiz-card" onclick="navigateToRules('Cp')">
+                    <img src="depositphotos_90960298-stock-illustration-letter-c-logo-icon-design.jpg" alt="C">
+                    <h3>C-Programming</h3>
+                    <p>Master the core of programming. Test your C expertise today!</p>
+                    <button class="btn" onclick="navigateToRules('Cp')">Start Test</button>
+                </div>
+                
+                <div class="quiz-card" onclick="navigateToRules('JAVA')">
+                    <img src="java.svg" alt="Java">
+                    <h3>JAVA Programming</h3>
+                    <p>Write once, run anywhere. But first, test your Java mastery!</p>
+                    <button class="btn"onclick="navigateToRules('JAVA')">Start Test</button>
+                </div>
+                
+                <div class="quiz-card" onclick="navigateToRules('Python')">
+                    <img src="pythonimage.png" alt="Python">
+                    <h3>Python Progrmming</h3>
+                    <p>Simple, powerful, and versatile. Are you ready to conquer Python?</p>
+                    <button class="btn" onclick="navigateToRules('Python')">Start Test</button>
+                </div>
+                
+                <div class="quiz-card" onclick="navigateToRules('Frontend')">
+                    <img src="white-web-design-and-front-end-development-icon-vector-36723278.jpg" alt="Front-end">
+                    <h3>HTML CSS AND JAVA-SCRIPT</h3>
+                    <p>Pixels meet perfection. Challenge your front-end expertise today!</p>
+                    <button class="btn"onclick="navigateToRules('Frontend')">Start Test</button>
+                </div>
+
+                <div class="quiz-card" onclick="navigateToRules('DSA')">
+                    <img src="white-web-design-and-front-end-development-icon-vector-36723278.jpg" alt="DSA">
+                    <h3>DSA</h3>
+                    <p>Pixels meet perfection. Challenge your front-end expertise today!</p>
+                    <button class="btn"onclick="navigateToRules('DSA')">Start Test</button>
+                </div>
+            </div>
+        </div>
+    <script src="programmingScript.js"></script>
+</body>
+</html>

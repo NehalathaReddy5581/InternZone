@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - InterviewPrep Hub</title>
+    <link rel="icon" href="uid_logo-removebg-preview edited.png" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(white,rgb(255, 245, 245),rgb(255, 227, 227));
+            min-height: 100vh;
+            padding-left: 50px;
+            padding-right: 50px;
+            margin-top: 20px;
+        }
+
+        .features-section {
+            padding: 3rem 0;
+        }
+
+        .features-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 2.5rem;
+            color: #e54646;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(173, 69, 69, 0.2);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #ff0000;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2);
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-title {
+            color: #e54646;
+        }
+
+        .feature-description {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 3rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 0.9rem;
+            color: #8a8a8a;
+        }
+
+        #backtohome {
+            display: inline;
+
+        }
+
+        #backtohome:hover {
+            box-shadow: 2px 2px #b3b3b3;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="merged.html">
+        <p id="backtohome"><img src="home_45dp_000_FILL0_wght400_GRAD0_opsz48.png"> </p>
+    </a>
+    <h1>About Us</h1>
+    <section class="features-section">
+        <h2 class="features-title">What We Offer</h2>
+        <div class="features-grid">
+            <div class="feature-card animate">
+                <div class="feature-icon">📚</div>
+                <h3 class="feature-title">Specialized Courses</h3>
+                <p class="feature-description">Comprehensive courses tailored to different industries, job roles, and
+                    interview types to ensure you're fully prepared.</p>
+            </div>
+
+            <div class="feature-card animate">
+                <div class="feature-icon">🔍</div>
+                <h3 class="feature-title">Company Research</h3>
+                <p class="feature-description">Insights into company-specific interview processes, culture, and values
+                    to help you align your responses accordingly.</p>
+            </div>
+
+            <div class="feature-card animate">
+                <div class="feature-icon">👔</div>
+                <h3 class="feature-title">Professional Presence</h3>
+                <p class="feature-description">Master the art of body language, attire, and attitude to make a memorable
+                    first impression during interviews.</p>
+            </div>
+
+            <div class="feature-card animate">
+                <div class="feature-icon">💼</div>
+                <h3 class="feature-title">LinkedIn Optimization</h3>
+                <p class="feature-description">Transform your LinkedIn profile into a powerful networking tool that
+                    attracts recruiters and showcases your skills.</p>
+            </div>
+
+            <div class="feature-card animate">
+                <div class="feature-icon">🎯</div>
+                <h3 class="feature-title">Mock Interviews</h3>
+                <p class="feature-description">Practice with industry professionals who provide detailed feedback to
+                    refine your interview performance.</p>
+            </div>
+
+            <div class="feature-card animate">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">Personalized Roadmaps</h3>
+                <p class="feature-description">Custom preparation plans that focus on your strengths and address your
+                    specific challenges to maximize success.</p>
+            </div>
+
+            <div class="feature-card animate">
+                <div class="feature-icon">📄</div>
+                <h3 class="feature-title"> Resume Builder</h3>
+                <p class="feature-description">Craft a professional, ATS-friendly resume with our guided builder.
+                    Customize templates, highlight key skills, and generate role-specific resumes that stand out to
+                    recruiters.
+                </p>
+            </div>
+            <div class="feature-card animate">
+                <div class="feature-icon">📝</div>
+                <h3 class="feature-title">Mock Quizzes</h3>
+                <p class="feature-description">Assess your interview readiness with time-bound quizzes covering
+                    aptitude, reasoning, technical concepts, and HR questions. Get instant feedback and track your
+                    progress over time.
+                </p>
+            </div>
+        </div>
+    </section>
+
+<style>
+    .about-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap:30px;
+    }
+    .card{
+        box-shadow: 1px 1px  1px 1px gray;
+        border-radius: 20px;
+       padding: 20px 10px;
+       color:#ff4d4d;
+       background-color: white;
+       transition: all 0.3s;
+    }
+    .card:hover{
+        transform: translateY(-4px);
+        box-shadow:3px 3px 3px 3px #6666662a;
+    }
+    .card h3{
+        color:red;
+    }
+
+</style>
+
+    <h2 style="text-align:center; margin:60px 0 20px; color:#000000;">What Our Students Say</h2>
+
+    <div class="about-container">
+        <div class="card">
+            <p>"Thanks to InternZone, I cracked my TCS interview! The mock sessions and attitude coaching made all the
+                difference."</p>
+            <h3>- Priya S., VIT</h3>
+        </div>
+        <div class="card">
+            <p>"The LinkedIn optimization guide and company-specific insights helped me get noticed by recruiters.
+                Highly recommended!"</p>
+            <h3>- Arjun M., SRM</h3>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 internzone. All rights reserved.
+    </footer>
+    <br><br>
+</body>
+
+</html>

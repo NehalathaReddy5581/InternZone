@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Circular Progress Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fff5f5;
+            color: #8b0000;
+            margin:0;
+        }
+
+        .progress-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+        }
+
+        svg {
+            transform: rotate(90deg);
+        }
+
+        .progress-circle {
+            fill: none;
+            stroke: #d32f2f;
+            stroke-width: 10;
+            stroke-linecap: round;
+            stroke-dasharray: 314;
+            stroke-dashoffset: 314;
+            transition: stroke-dashoffset 0.5s ease-in-out, stroke 0.3s;
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-weight: bold;
+            color: #b71c1c;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .step {
+            position: relative;
+            padding: 15px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            background-color: #e53935;
+            color: white;
+            transition: 0.2s;
+        }
+
+        .step:hover {
+            background-color: #b71c1c;
+        }
+
+        .checklist {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid #ddd;
+            padding: 20px 50px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            max-height: 200px;
+            overflow-y: auto;
+            width: 220px;
+            color: #8b0000;
+        }
+
+        .step:hover .checklist {
+            display: block;
+        }
+
+        .checklist label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin: 5px 0;
+            cursor: pointer;
+            color: #8b0000;
+        }
+
+        .reset-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .reset-btn:hover {
+            background-color: #b71c1c;
+        }
+
+        .step button {
+            margin-left: 10px;
+            background: white;
+            color: #d32f2f;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 3px;
+            padding: 2px 8px;
+            transition: background-color 0.2s;
+        }
+
+        .step button:hover {
+            background-color: #fce4ec;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="step">To Do
+        <button onclick="addTask(this.parentElement)">➕</button>
+        <div class="checklist">
+        </div>
+    </div>
+
+    <h2>Progress Tracker</h2>
+    <div class="progress-container">
+        <svg width="200" height="200">
+            <circle cx="100" cy="100" r="80" stroke="#ffcdd2" stroke-width="12" fill="none" />
+            <circle id="progressCircle" cx="100" cy="100" r="80" class="progress-circle" />
+        </svg>
+        <div class="progress-text" id="progressText">0%</div>
+    </div>
+
+    <div class="steps">
+        <div class="step">Frontend
+            <div class="checklist">
+                <label><input type="checkbox" value="8" onchange="updateProgress()" /> <span>HTML</span></label>
+                <label><input type="checkbox" value="7" onchange="updateProgress()" /> <span>CSS</span></label>
+                <label><input type="checkbox" value="10" onchange="updateProgress()" /> <span>JavaScript</span></label>
+                <label><input type="checkbox" value="3" onchange="updateProgress()" /> <span>TypeScript</span></label>
+                <label><input type="checkbox" value="2" onchange="updateProgress()" /> <span>Bootstrap</span></label>
+            </div>
+        </div>
+
+        <div class="step">Programming Languages
+            <div class="checklist">
+                <label><input type="checkbox" value="6" onchange="updateProgress()" /> <span>C</span></label>
+                <label><input type="checkbox" value="7" onchange="updateProgress()" /> <span>C++</span></label>
+                <label><input type="checkbox" value="10" onchange="updateProgress()" /> <span>Python</span></label>
+                <label><input type="checkbox" value="10" onchange="updateProgress()" /> <span>Java</span></label>
+                <label><input type="checkbox" value="5" onchange="updateProgress()" /> <span>C#</span></label>
+                <label><input type="checkbox" value="4" onchange="updateProgress()" /> <span>Rust</span></label>
+                <label><input type="checkbox" value="4" onchange="updateProgress()" /> <span>Swift</span></label>
+                <label><input type="checkbox" value="4" onchange="updateProgress()" /> <span>Kotlin</span></label>
+            </div>
+        </div>
+
+        <div class="step">Backend
+            <div class="checklist">
+                <label><input type="checkbox" value="8" onchange="updateProgress()" /> <span>Node.js</span></label>
+                <label><input type="checkbox" value="5" onchange="updateProgress()" /> <span>Ruby</span></label>
+                <label><input type="checkbox" value="4" onchange="updateProgress()" /> <span>PHP</span></label>
+                <label><input type="checkbox" value="3" onchange="updateProgress()" /> <span>Go (Golang)</span></label>
+            </div>
+        </div>
+    </div>
+
+    <button class="reset-btn" onclick="resetProgress()">Reset Progress</button>
+
+    <script>
+        const circumference = 314;
+        const circle = document.getElementById("progressCircle");
+        const progressText = document.getElementById("progressText");
+
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll("input[type='checkbox']");
+            let total = 0;
+            let checkedItems = [];
+
+            checkboxes.forEach((cb, i) => {
+                if (cb.checked) {
+                    total += parseInt(cb.value) || 0;
+                    checkedItems.push(i);
+                }
+            });
+
+            localStorage.setItem("checkedItems", JSON.stringify(checkedItems));
+            localStorage.setItem("progressValue", total);
+
+            const offset = circumference - (total / 100) * circumference;
+            circle.style.strokeDashoffset = offset;
+            circle.style.stroke = total ? "#d32f2f" : "transparent";
+            progressText.textContent = total + "%";
+        }
+
+        function resetProgress() {
+            document.querySelectorAll("input[type='checkbox']").forEach(cb => cb.checked = false);
+            localStorage.removeItem("checkedItems");
+            localStorage.removeItem("progressValue");
+
+            circle.style.strokeDashoffset = circumference;
+            circle.style.stroke = "transparent";
+            progressText.textContent = "0%";
+        }
+
+        function initialize() {
+            resetProgress();
+        }
+
+        window.onload = initialize;
+
+        function addTask(stepElement) {
+            const checklist = stepElement.querySelector(".checklist");
+            const taskName = prompt("Enter task name:");
+            if (!taskName) return;
+
+            const label = document.createElement("label");
+            label.innerHTML = ` <input type="checkbox"> <span>${taskName}</span> `;
+            checklist.appendChild(label);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>first page</title>
+        <style>
+            .header
+            {
+                background-color: rgb(237, 88, 88);
+                display: flex; 
+                height: 45px; 
+                display: flex;
+                align-items: center; 
+            }
+            .b1
+            {
+                background-color:white;
+                border: none;
+                color: black;
+                font-size: 15px;
+                border-radius: 30px;
+                padding-left: 12px;
+                padding-right: 12px;
+                padding-top: 7px;
+                padding-bottom: 7px;
+                margin-left: 1100px;
+                margin-right: 50px;
+                cursor: pointer;
+                border-radius: 900px;
+            }
+            .b1:hover{
+                opacity: 0.7;
+            }
+            .b2
+            {
+                background-color:white;
+                border: none;
+                color: black;
+                font-size: 15px;
+                border-radius: 30px;
+                padding-left: 12px;
+                padding-right: 12px;
+                padding-top: 7px;
+                padding-bottom: 7px;
+                margin-left: 2px;
+                margin-right: 50px;
+                cursor: pointer;
+                border-radius: 900px;
+            }
+            .b2:hover{
+                opacity: 0.7;
+            }
+            .b3
+            {
+                background-color:white;
+                border: none;
+                color: black;
+                font-size: 15px;
+                border-radius: 30px;
+                padding-left: 12px;
+                padding-right: 12px;
+                padding-top: 7px;
+                padding-bottom: 7px;
+                margin-left: 5px;
+                margin-right: 3000px;
+                cursor: pointer;
+                border-radius: 900px;
+            }
+            .b3:hover{
+                opacity: 0.7;
+            }
+            
+            .text{
+                font-family: "STXinwei", cursive, sans-serif;
+                 font-size: 30px;
+                 text-align: left;
+                 margin-left: 120px;
+            }
+            button {
+  line-height: 1;
+  text-decoration: none;
+  display: inline-flex;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: rgb(225, 62, 62);
+  color: #fff;
+  border-radius: 10rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  padding-left: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background-color 0.3s;
+  margin-left: 1200px;
+  
+  
+}
+
+.button__icon-wrapper {
+  flex-shrink: 0;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  color: rgb(225, 62, 62);
+  background-color:white;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.button:hover {
+  background-color:black;
+}
+
+.button:hover .button__icon-wrapper {
+  color:black;
+}
+
+.button__icon-svg--copy {
+  position: absolute;
+  transform: translate(-150%, 150%);
+}
+
+.button:hover .button__icon-svg:first-child {
+  transition: transform 0.3s ease-in-out;
+  transform: translate(150%, -150%);
+}
+
+.button:hover .button__icon-svg--copy {
+  transition: transform 0.3s ease-in-out 0.1s;
+  transform: translate(0);
+}
+.mainpic{
+       margin-left: 900px;
+}
+
+        </style>
+    </head>
+    <body>
+      <img class="mainpic" src="homepageimage.jpg">
+        <div class="header">
+        <a href="link.html"><button class="b1">interview</button></a>
+        <a href="link.html"><button class="b2">sources</button></a>
+        <a href="link.html"><button class="b3">jobs</button></a>
+    </div>
+    <div>
+        <img  class="pic" >
+    </div>
+    <p class="text">Thinking??<br> how to start preparing for an interview</p>
+    <button href="#" class="button" style="--clr: #7808d0">
+        <span class="button__icon-wrapper">
+          <svg
+            viewBox="0 0 14 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="button__icon-svg"
+            width="10"
+          >
+            <path
+              d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+              fill="currentColor"
+            ></path>
+          </svg>
+      
+          <svg
+            viewBox="0 0 14 15"
+            fill="none"
+            width="10"
+            xmlns="http://www.w3.org/2000/svg"
+            class="button_icon-svg button_icon-svg--copy"
+          >
+            <path
+              d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+              fill="currentColor"
+            ></path>
+          </svg>
+        </span>
+        Explore All
+      </button>
+    
+    
+    </body>
+</html>

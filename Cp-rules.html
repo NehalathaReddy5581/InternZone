@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Quiz Rules</title>
+    <link rel="stylesheet" href="programming-rules.css">
+</head>
+<body onload="initializeButtons()">
+    <header>
+        <h1>Programming Zone</h1>
+        <p>Test your programming knowledge with questions covering different languages, algorithms, and problem solving.</p>
+    </header>
+     <div class="rules-container" id="rulesScreen" >
+            <h2 id="rulesTitle">C-Programming Quiz Rules</h2>
+            <ul class="rules-list" id="rulesList">
+            <li>Read each question carefully before selecting your answer</li>
+            <li>Each question has only one correct answer</li>
+            <li>Correct answers earn 1 point, wrong answers earn 0 points</li> 
+            <li>You can't go back to previous questions once answered</li>
+            </ul>
+            
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="goBack()">Cancel</button>
+                <button class="btn" onclick="startQuiz()">Start Quiz</button>
+            </div>
+        </div>
+         <script src="programmingScript.js"></script>
+</body>
+</html>

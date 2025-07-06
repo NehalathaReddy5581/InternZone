@@ -1,0 +1,124 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@600&display=swap');
+
+body {
+    background-color: white;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: red;
+    padding: 20px 0;
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+.section {
+    padding: 40px 10%;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+h2 {
+    text-transform: uppercase;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: red;
+    border-bottom: 3px solid red;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    animation: slideInFromLeft 1s ease-out;
+}
+
+
+.company-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+
+.company-row.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.company-row:hover {
+    box-shadow: 0px 10px 20px rgba(255, 0, 0, 0.3);
+    transform: scale(1.02);
+}
+
+
+.reverse {
+    flex-direction: row-reverse;
+}
+
+.company-row img {
+    width: 180px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.368);
+    transition: transform 0.3s ease-in-out;
+}
+
+.company-row img:hover {
+    transform: scale(1.1) rotate(3deg);
+}
+
+.company-info {
+    flex: 1;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.company-info h3 {
+    font-size: 1.8rem;
+    color: black;
+    margin-bottom: 10px;
+    position: relative;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.company-info a {
+    display: inline-block;
+    padding: 12px 18px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0 3px 10px rgba(255, 0, 0, 0.3);
+}
+
+.company-info a:hover {
+    background: rgba(255, 0, 0, 0.765);
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.5);
+}
+
+

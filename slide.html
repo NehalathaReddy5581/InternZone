@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide on Scroll</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            height: 200vh; /* Just for scrolling effect */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide-container {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+            border: 2px solid #000;
+            margin: 50px 0;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: lightblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .slide:nth-child(2) {
+            background: lightcoral;
+            transform: translateX(100%);
+        }
+
+        .active .slide:nth-child(1) {
+            transform: translateX(-100%);
+        }
+
+        .active .slide:nth-child(2) {
+            transform: translateX(0%);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide-container">
+        <div class="slide">Slide 1</div>
+        <div class="slide">Slide 2</div>
+    </div>
+
+    <script>
+        const slideContainer = document.querySelector(".slide-container");
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    slideContainer.classList.add("active");
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(slideContainer);
+    </script>
+
+</body>
+</html>
+    
